@@ -8,45 +8,61 @@ describe("json TwitterNode instance")
   before(function() { this.twit = twitterNode.create(); })
 
   it("emits tweet with parsed JSON tweet", function() {
+    var promise = new process.Promise();
+    var result;
     this.twit
       .addListener('tweet', function(tweet) {
-        assert.equal(1, tweet.a)
+        result = tweet
+        promise.emitSuccess()
       })
       .addListener('limit', function(tweet) {
-        assert.fail("should not be a limit")
+        promise.emitError()
       })
       .addListener('delete', function(tweet) {
-        assert.fail("should not be a delete")
+        promise.emitError()
       })
       .processTweet('{"a":1}')
+
+    if(!promise.hasFired) promise.wait()
+    assert.equal(1, result.a)
   })
 
   it("emits delete with parsed JSON delete command", function() {
+    var promise = new process.Promise();
     this.twit
       .addListener('tweet', function(tweet) {
-        assert.fail("should not be a tweet")
+        promise.emitError()
       })
       .addListener('limit', function(tweet) {
-        assert.fail("should not be a limit")
+        promise.emitError()
       })
       .addListener('delete', function(tweet) {
-        assert.equal(1234, tweet.status.id)
+        result = tweet
+        promise.emitSuccess()
       })
       .processTweet('{"delete":{"status":{"id": 1234}}}')
+
+    if(!promise.hasFired) promise.wait()
+    assert.equal(1234, result.status.id)
   })
 
   it("emits limit with parsed JSON limit command", function() {
+    var promise = new process.Promise();
     this.twit
       .addListener('tweet', function(tweet) {
-        assert.fail("should not be a tweet")
+        promise.emitError()
       })
       .addListener('delete', function(tweet) {
-        assert.fail("should not be a delete")
+        promise.emitError()
       })
       .addListener('limit', function(tweet) {
-        assert.equal(1234, tweet.track)
+        result = tweet
+        promise.emitSuccess()
       })
       .processTweet('{"limit":{"track": 1234}}')
+
+    if(!promise.hasFired) promise.wait()
+    assert.equal(1234, result.track)
   })
 
 describe("default TwitterNode instance")
