@@ -4,6 +4,51 @@ var twitterNode = require('../lib'),
 
 process.mixin(GLOBAL, require('ntest'));
 
+describe("json TwitterNode instance")
+  before(function() { this.twit = twitterNode.create(); })
+
+  it("emits tweet with parsed JSON tweet", function() {
+    this.twit
+      .addListener('tweet', function(tweet) {
+        assert.equal(1, tweet.a)
+      })
+      .addListener('limit', function(tweet) {
+        assert.fail("should not be a limit")
+      })
+      .addListener('delete', function(tweet) {
+        assert.fail("should not be a delete")
+      })
+      .processTweet('{"a":1}')
+  })
+
+  it("emits delete with parsed JSON delete command", function() {
+    this.twit
+      .addListener('tweet', function(tweet) {
+        assert.fail("should not be a tweet")
+      })
+      .addListener('limit', function(tweet) {
+        assert.fail("should not be a limit")
+      })
+      .addListener('delete', function(tweet) {
+        assert.equal(1234, tweet.status.id)
+      })
+      .processTweet('{"delete":{"status":{"id": 1234}}}')
+  })
+
+  it("emits limit with parsed JSON limit command", function() {
+    this.twit
+      .addListener('tweet', function(tweet) {
+        assert.fail("should not be a tweet")
+      })
+      .addListener('delete', function(tweet) {
+        assert.fail("should not be a delete")
+      })
+      .addListener('limit', function(tweet) {
+        assert.equal(1234, tweet.track)
+      })
+      .processTweet('{"limit":{"track": 1234}}')
+  })
+
 describe("default TwitterNode instance")
   before(function() { this.twit = twitterNode.create(); })
 
