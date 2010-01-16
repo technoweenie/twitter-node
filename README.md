@@ -63,9 +63,21 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
 
       .stream()
 
+## Pre-Launch Checklist
+
+See http://apiwiki.twitter.com/Streaming-API-Documentation.  Keep these points in mind when getting ready to use TwitterNode in production:
+
+* Not purposefully attempting to circumvent access limits and levels?
+* Creating the minimal number of connections?
+* Avoiding duplicate logins?
+* Backing off from failures: none for first disconnect, seconds for repeated network (TCP/IP) level issues, minutes for repeated HTTP (4XX codes)?
+* Using long-lived connections?
+* Tolerant of other objects and newlines in markup stream? (Non <status> objects...)
+* Tolerant of duplicate messages?
+
 ## TODO
 
-* XML Parsing?
+* Handle failures as recommended from the Twitter stream documentation.
 
 ## Copyright
 
