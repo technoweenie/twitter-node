@@ -128,6 +128,7 @@ describe("custom TwitterNode instance")
       format: 'xml',
       follow: [123,456],
       track: ['abc', 'def'],
+      headers: {'a': 'abc'},
       params: {count: 5}
     }
     this.twit = twitterNode.create(this.options); 
@@ -135,6 +136,11 @@ describe("custom TwitterNode instance")
 
   it("has default requestUrl()", function() {
     assert.equal("abc/retweet.xml" + this.twit.buildParams(), this.twit.requestUrl())
+  })
+
+  it("merges given headers with defaults", function() {
+    assert.equal('abc', this.twit.headers.a)
+    assert.ok(this.twit.headers['User-Agent'])
   })
 
   it("has empty params", function() {
