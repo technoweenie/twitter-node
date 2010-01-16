@@ -26,42 +26,42 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
 
 ## Usage
 
-var TwitterNode = require('twitter-node')
-// you can pass args to create() or set them on the TwitterNode instance
-var twit = TwitterNode.create({
-  user: 'username', 
-  password: 'password',
-  track: ['baseball', 'football'],
-  follow: [12345, 67890]})
+    var TwitterNode = require('twitter-node')
+    // you can pass args to create() or set them on the TwitterNode instance
+    var twit = TwitterNode.create({
+      user: 'username', 
+      password: 'password',
+      track: ['baseball', 'football'],
+      follow: [12345, 67890]})
 
-// adds to the track array set above
-twit.track('foosball')
+    // adds to the track array set above
+    twit.track('foosball')
 
-// adds to the following array set above
-twit.follow(2345)
+    // adds to the following array set above
+    twit.follow(2345)
 
-twit.params['count'] = 100
-twit.headers['User-Agent'] = 'whatever'
-twit.action = 'sample' // 'filter' is default
+    twit.params['count'] = 100
+    twit.headers['User-Agent'] = 'whatever'
+    twit.action = 'sample' // 'filter' is default
 
-twit
-  .addListener('tweet', function(tweet) {
-    sys.puts("@" + tweet.user.screen_name + ": " + tweet.text)
-  })
+    twit
+      .addListener('tweet', function(tweet) {
+        sys.puts("@" + tweet.user.screen_name + ": " + tweet.text)
+      })
 
-  .addListener('limit', function(limit) {
-    sys.puts("LIMIT: " + sys.inspect(limit))
-  })
+      .addListener('limit', function(limit) {
+        sys.puts("LIMIT: " + sys.inspect(limit))
+      })
 
-  .addListener('delete', function(del) {
-    sys.puts("DELETE: " + sys.inspect(del))
-  })
+      .addListener('delete', function(del) {
+        sys.puts("DELETE: " + sys.inspect(del))
+      })
 
-  .addListener('close', function(resp) {
-    sys.puts("wave goodbye... " + resp.statusCode)
-  })
+      .addListener('close', function(resp) {
+        sys.puts("wave goodbye... " + resp.statusCode)
+      })
 
-  .stream()
+      .stream()
 
 ## TODO
 
