@@ -7,6 +7,28 @@ process.mixin(GLOBAL, require('ntest'));
 describe("json TwitterNode instance")
   before(function() { this.twit = twitterNode.create(); })
 
+  it("accepts JSON in chunks", function() {
+    var promise = new process.Promise();
+    var result;
+
+    this.twit.addListener('tweet', function(tweet) {
+      result = tweet
+      promise.emitSuccess()
+    })
+
+    this.twit.processTweet("")
+    this.twit.processTweet(" ")
+    this.twit.processTweet("{")
+    this.twit.processTweet('"a":{')
+    this.twit.processTweet('"b":1}')
+    this.twit.processTweet("}")
+
+    if(!promise.hasFired && promise._blocking) promise.wait()
+
+    assert.ok(result)
+    assert.equal(1, result.a.b)
+  })
+
   it("emits tweet with parsed JSON tweet", function() {
     var promise = new process.Promise();
     var result;
