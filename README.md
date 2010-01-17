@@ -26,9 +26,9 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
 
 ## Usage
 
-    var TwitterNode = require('twitter-node')
+    var TwitterNode = require('twitter-node').TwitterNode;
     // you can pass args to create() or set them on the TwitterNode instance
-    var twit = TwitterNode.create({
+    var twit = new TwitterNode({
       user: 'username', 
       password: 'password',
       track: ['baseball', 'football'],

@@ -1,11 +1,11 @@
-var twitterNode = require('../lib'),
+var TwitterNode = require('../lib').TwitterNode,
          assert = require('assert'),
             sys = require('sys');
 
 process.mixin(GLOBAL, require('ntest'));
 
 describe("json TwitterNode instance")
-  before(function() { this.twit = twitterNode.create(); })
+  before(function() { this.twit = new TwitterNode(); })
 
   it("accepts JSON in chunks", function() {
     var promise = new process.Promise();
@@ -88,7 +88,7 @@ describe("json TwitterNode instance")
   })
 
 describe("default TwitterNode instance")
-  before(function() { this.twit = twitterNode.create(); })
+  before(function() { this.twit = new TwitterNode(); })
 
   it("has default requestUrl()", function() {
     assert.equal("/1/statuses/filter.json", this.twit.requestUrl())
@@ -131,7 +131,7 @@ describe("custom TwitterNode instance")
       headers: {'a': 'abc'},
       params: {count: 5}
     }
-    this.twit = twitterNode.create(this.options); 
+    this.twit = new TwitterNode(this.options); 
   })
 
   it("has default requestUrl()", function() {
