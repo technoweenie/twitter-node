@@ -20,8 +20,8 @@ describe("json TwitterNode instance")
     this.twit.processTweet(" ")
     this.twit.processTweet("{")
     this.twit.processTweet('"a":{')
-    this.twit.processTweet('"b":1}')
-    this.twit.processTweet("}\n{\"a\":1}")
+    this.twit.processTweet('"b":1')
+    this.twit.processTweet("}\n}\n{\"a\":1}")
 
     if(!promise.hasFired && promise._blocking) promise.wait()
 
