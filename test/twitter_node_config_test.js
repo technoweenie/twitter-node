@@ -121,15 +121,15 @@ describe("default TwitterNode instance")
 describe("custom TwitterNode instance")
   before(function() {
     this.options = {
-      port:81,
-      host:'10.0.0.1',
-      path: 'abc/',
-      action: 'retweet',
-      format: 'xml',
-      follow: [123,456],
-      track: ['abc', 'def'],
+      port:    81,
+      host:    '10.0.0.1',
+      path:    'abc/',
+      action:  'retweet',
+      format:  'xml',
+      follow:  [123,456],
+      track:   ['abc', 'def'],
       headers: {'a': 'abc'},
-      params: {count: 5}
+      params:  {count: 5}
     }
     this.twit = new TwitterNode(this.options); 
   })
