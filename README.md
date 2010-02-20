@@ -15,7 +15,7 @@ in my `~/.node_libraries` path.
 
 TwitterNode emits these events:
 
-* tweet(json) - This is emitted when a new tweet comes in.  If the format is set to 'json' (default), then this is a parsed JSON object.
+* tweet(json) - This is emitted when a new tweet comes in.  This will be a parsed JSON object.
 * limit(json) - This is emitted when a new limit command comes in.  Currently, limit detection only works with parsed JSON objects.
 * delete(json) - This is emitted when a new delete command comes in.  Currently, delete detection only works with parsed JSON objects.
 * close(response) - This is emitted when the http connection is closed.  The HTTP response object is sent.

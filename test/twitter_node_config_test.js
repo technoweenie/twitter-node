@@ -4,30 +4,33 @@ var TwitterNode = require('../lib').TwitterNode,
 
 process.mixin(GLOBAL, require('ntest'));
 
-describe("json TwitterNode instance")
-  before(function() { this.twit = new TwitterNode(); })
-
+describe("streaming json parser")
   it("accepts JSON in chunks", function() {
-    var promise = new process.Promise();
-    var result;
+    var parser  = require("../lib/streaming_json_parser"),
+        promise = new process.Promise(),
+              p = new parser.instance(),
+        result
 
-    this.twit.addListener('tweet', function(tweet) {
+    p.addListener('object', function(tweet) {
       result = tweet
       promise.emitSuccess()
     })
-
-    this.twit.processTweet("")
-    this.twit.processTweet(" ")
-    this.twit.processTweet("{")
-    this.twit.processTweet('"a":{')
-    this.twit.processTweet('"b":1')
-    this.twit.processTweet("}\n}\n{\"a\":1}")
-
+  
+    p.receive("")
+    p.receive(" ")
+    p.receive("{")
+    p.receive('"a":{')
+    p.receive('"b":1')
+    p.receive("}\n}\n{\"a\":1}")
+  
     if(!promise.hasFired && promise._blocking) promise.wait()
-
+  
     assert.ok(result)
     assert.equal(1, result.a.b)
   })
+
+describe("json TwitterNode instance")
+  before(function() { this.twit = new TwitterNode(); })
 
   it("emits tweet with parsed JSON tweet", function() {
     var promise = new process.Promise();
@@ -43,7 +46,7 @@ describe("json TwitterNode instance")
       .addListener('delete', function(tweet) {
         promise.emitError()
       })
-      .processTweet('{"a":1}')
+      .receive('{"a":1}')
 
     if(!promise.hasFired) promise.wait()
     assert.equal(1, result.a)
@@ -62,7 +65,7 @@ describe("json TwitterNode instance")
         result = tweet
         promise.emitSuccess()
       })
-      .processTweet('{"delete":{"status":{"id": 1234}}}')
+      .receive('{"delete":{"status":{"id": 1234}}}')
 
     if(!promise.hasFired) promise.wait()
     assert.equal(1234, result.status.id)
@@ -81,7 +84,7 @@ describe("json TwitterNode instance")
         result = tweet
         promise.emitSuccess()
       })
-      .processTweet('{"limit":{"track": 1234}}')
+      .receive('{"limit":{"track": 1234}}')
 
     if(!promise.hasFired) promise.wait()
     assert.equal(1234, result.track)
@@ -125,7 +128,6 @@ describe("custom TwitterNode instance")
       host:    '10.0.0.1',
       path:    'abc/',
       action:  'retweet',
-      format:  'xml',
       follow:  [123,456],
       track:   ['abc', 'def'],
       headers: {'a': 'abc'},
@@ -135,7 +137,7 @@ describe("custom TwitterNode instance")
   })
 
   it("has default requestUrl()", function() {
-    assert.equal("abc/retweet.xml" + this.twit.buildParams(), this.twit.requestUrl())
+    assert.equal("abc/retweet.json" + this.twit.buildParams(), this.twit.requestUrl())
   })
 
   it("merges given headers with defaults", function() {
