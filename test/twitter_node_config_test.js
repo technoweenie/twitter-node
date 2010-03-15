@@ -123,7 +123,7 @@ describe("default TwitterNode instance")
 
   it("adds locations", function() {
     this.twit.location(122.75, 36.8, -121.75, 37.8) // SF
-    this.twit.location(-74,40, -73,41) // NYC
+    this.twit.location(-74, 40, -73, 41) // NYC
     assert.equal('?locations=122.75%2C36.8%2C-121.75%2C37.8%2C-74%2C40%2C-73%2C41', this.twit.buildParams())
   })
 
