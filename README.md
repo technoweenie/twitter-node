@@ -32,36 +32,44 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
       user: 'username', 
       password: 'password',
       track: ['baseball', 'football'],
-      follow: [12345, 67890]})
+      follow: [12345, 67890]
+    });
 
     // adds to the track array set above
-    twit.track('foosball')
+    twit.track('foosball');
 
     // adds to the following array set above
-    twit.follow(2345)
+    twit.follow(2345);
 
-    twit.params['count'] = 100
-    twit.headers['User-Agent'] = 'whatever'
-    twit.action = 'sample' // 'filter' is default
+    twit.params['count'] = 100;
+    twit.headers['User-Agent'] = 'whatever';
+    twit.action = 'sample'; // 'filter' is default
 
     twit
       .addListener('tweet', function(tweet) {
-        sys.puts("@" + tweet.user.screen_name + ": " + tweet.text)
+        sys.puts("@" + tweet.user.screen_name + ": " + tweet.text);
       })
 
       .addListener('limit', function(limit) {
-        sys.puts("LIMIT: " + sys.inspect(limit))
+        sys.puts("LIMIT: " + sys.inspect(limit));
       })
 
       .addListener('delete', function(del) {
-        sys.puts("DELETE: " + sys.inspect(del))
+        sys.puts("DELETE: " + sys.inspect(del));
       })
 
       .addListener('close', function(resp) {
-        sys.puts("wave goodbye... " + resp.statusCode)
+        sys.puts("wave goodbye... " + resp.statusCode);
       })
 
-      .stream()
+      .stream();
+      
+    // We can also add things to track on-the-fly
+    twit.track('#nowplaying');
+    twit.follow(1234);
+    
+    // This will reset the stream
+    twit.stream();
 
 ## Pre-Launch Checklist
 
