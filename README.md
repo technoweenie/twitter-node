@@ -31,8 +31,9 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
     var twit = new TwitterNode({
       user: 'username', 
       password: 'password',
-      track: ['baseball', 'football'],
-      follow: [12345, 67890]
+      track: ['baseball', 'football'],         // sports!
+      follow: [12345, 67890],                  // follow these random users
+      locations: [122.75, 36.8, -121.75, 37.8] // tweets in SF
     });
 
     // adds to the track array set above
@@ -40,6 +41,9 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
 
     // adds to the following array set above
     twit.follow(2345);
+
+    // follow tweets from NYC
+    twit.location(-74, 40, -73, 41)
 
     twit.params['count'] = 100;
     twit.headers['User-Agent'] = 'whatever';
@@ -86,6 +90,12 @@ See http://apiwiki.twitter.com/Streaming-API-Documentation.  Keep these points i
 ## TODO
 
 * Handle failures as recommended from the Twitter stream documentation.
+
+## \m/
+
+Tim Smart
+Matt Secoske (secos)
+Twitter
 
 ## Note on Patches/Pull Requests
  
