@@ -93,9 +93,9 @@ See http://apiwiki.twitter.com/Streaming-API-Documentation.  Keep these points i
 
 ## \m/
 
-Tim Smart
-Matt Secoske (secos)
-Twitter
+* Tim Smart
+* Matt Secoske (secos)
+* Twitter
 
 ## Note on Patches/Pull Requests
  
