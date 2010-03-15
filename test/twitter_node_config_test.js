@@ -109,16 +109,22 @@ describe("default TwitterNode instance")
     assert.equal('stream.twitter.com', this.twit.host)
   })
 
-  it("can add tracking keywords", function() {
+  it("adds tracking keywords", function() {
     this.twit.track('abc+def')
     this.twit.track('ghi')
     assert.equal('?track=abc%2Bdef%2Cghi', this.twit.buildParams())
   })
 
-  it("can add following users", function() {
+  it("adds following users", function() {
     this.twit.follow(123)
     this.twit.follow(456)
     assert.equal('?follow=123%2C456', this.twit.buildParams())
+  })
+
+  it("adds locations", function() {
+    this.twit.location(122.75, 36.8, -121.75, 37.8) // SF
+    this.twit.location(-74,40, -73,41) // NYC
+    assert.equal('?locations=122.75%2C36.8%2C-121.75%2C37.8%2C-74%2C40%2C-73%2C41', this.twit.buildParams())
   })
 
 describe("custom TwitterNode instance")
