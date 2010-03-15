@@ -26,7 +26,9 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
 
 ## Usage
 
+    // twitter-node does not modify GLOBAL, that's so rude
     var TwitterNode = require('twitter-node').TwitterNode;
+
     // you can pass args to create() or set them on the TwitterNode instance
     var twit = new TwitterNode({
       user: 'username', 
@@ -45,9 +47,13 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
     // follow tweets from NYC
     twit.location(-74, 40, -73, 41)
 
+    // http://apiwiki.twitter.com/Streaming-API-Documentation#QueryParameters
     twit.params['count'] = 100;
-    twit.headers['User-Agent'] = 'whatever';
+
+    // http://apiwiki.twitter.com/Streaming-API-Documentation#Methods
     twit.action = 'sample'; // 'filter' is default
+
+    twit.headers['User-Agent'] = 'whatever';
 
     twit
       .addListener('tweet', function(tweet) {
