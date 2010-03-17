@@ -7,13 +7,11 @@ process.mixin(GLOBAL, require('ntest'));
 describe("streaming json parser")
   it("accepts JSON in chunks", function() {
     var parser  = require("../lib/streaming_json_parser"),
-        promise = new process.Promise(),
               p = new parser.instance(),
         result
 
     p.addListener('object', function(tweet) {
       result = tweet
-      promise.emitSuccess()
     })
   
     p.receive("")
@@ -22,9 +20,9 @@ describe("streaming json parser")
     p.receive('"a":{')
     p.receive('"b":1')
     p.receive("}\n}\n{\"a\":1}")
-  
-    if(!promise.hasFired && promise._blocking) promise.wait()
-  
+
+    while(!result) {}
+
     assert.ok(result)
     assert.equal(1, result.a.b)
   })
@@ -33,60 +31,56 @@ describe("json TwitterNode instance")
   before(function() { this.twit = new TwitterNode(); })
 
   it("emits tweet with parsed JSON tweet", function() {
-    var promise = new process.Promise();
     var result;
     this.twit
       .addListener('tweet', function(tweet) {
         result = tweet
-        promise.emitSuccess()
       })
       .addListener('limit', function(tweet) {
-        promise.emitError()
+        result = {a:null}
       })
       .addListener('delete', function(tweet) {
-        promise.emitError()
+        result = {a:null}
       })
       .receive('{"a":1}')
 
-    if(!promise.hasFired) promise.wait()
+    while(!result) {}
     assert.equal(1, result.a)
   })
 
   it("emits delete with parsed JSON delete command", function() {
-    var promise = new process.Promise();
+    var result;
     this.twit
       .addListener('tweet', function(tweet) {
-        promise.emitError()
+        result = {status:null}
       })
       .addListener('limit', function(tweet) {
-        promise.emitError()
+        result = {status:null}
       })
       .addListener('delete', function(tweet) {
         result = tweet
-        promise.emitSuccess()
       })
       .receive('{"delete":{"status":{"id": 1234}}}')
 
-    if(!promise.hasFired) promise.wait()
+    while(!result) {}
     assert.equal(1234, result.status.id)
   })
 
   it("emits limit with parsed JSON limit command", function() {
-    var promise = new process.Promise();
+    var result;
     this.twit
       .addListener('tweet', function(tweet) {
-        promise.emitError()
+        result = {track:null}
       })
       .addListener('delete', function(tweet) {
-        promise.emitError()
+        result = {track:null}
       })
       .addListener('limit', function(tweet) {
         result = tweet
-        promise.emitSuccess()
       })
       .receive('{"limit":{"track": 1234}}')
 
-    if(!promise.hasFired) promise.wait()
+    while(!result) {}
     assert.equal(1234, result.track)
   })
 
