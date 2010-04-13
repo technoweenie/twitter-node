@@ -18,7 +18,7 @@ TwitterNode emits these events:
 * tweet(json) - This is emitted when a new tweet comes in.  This will be a parsed JSON object.
 * limit(json) - This is emitted when a new limit command comes in.  Currently, limit detection only works with parsed JSON objects.
 * delete(json) - This is emitted when a new delete command comes in.  Currently, delete detection only works with parsed JSON objects.
-* close(response) - This is emitted when the http connection is closed.  The HTTP response object is sent.
+* end(response) - This is emitted when the http connection is closed.  The HTTP response object is sent.
 
 See the [streaming API docs][api-docs] for examples of the limit and delete commands.
 
@@ -68,7 +68,7 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
         sys.puts("DELETE: " + sys.inspect(del));
       })
 
-      .addListener('close', function(resp) {
+      .addListener('end', function(resp) {
         sys.puts("wave goodbye... " + resp.statusCode);
       })
 
@@ -101,6 +101,7 @@ See http://apiwiki.twitter.com/Streaming-API-Documentation.  Keep these points i
 
 * Tim Smart
 * Matt Secoske (secos)
+* kompozer
 * Twitter
 
 ## Note on Patches/Pull Requests

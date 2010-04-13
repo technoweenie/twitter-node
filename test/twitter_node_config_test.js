@@ -21,8 +21,6 @@ describe("streaming json parser")
     p.receive('"b":1')
     p.receive("}\n}\n{\"a\":1}")
 
-    while(!result) {}
-
     assert.ok(result)
     assert.equal(1, result.a.b)
   })
@@ -44,7 +42,6 @@ describe("json TwitterNode instance")
       })
       .receive('{"a":1}')
 
-    while(!result) {}
     assert.equal(1, result.a)
   })
 
@@ -62,7 +59,6 @@ describe("json TwitterNode instance")
       })
       .receive('{"delete":{"status":{"id": 1234}}}')
 
-    while(!result) {}
     assert.equal(1234, result.status.id)
   })
 
@@ -80,7 +76,6 @@ describe("json TwitterNode instance")
       })
       .receive('{"limit":{"track": 1234}}')
 
-    while(!result) {}
     assert.equal(1234, result.track)
   })
 
