@@ -27,7 +27,8 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
 ## Usage
 
     // twitter-node does not modify GLOBAL, that's so rude
-    var TwitterNode = require('twitter-node').TwitterNode;
+    var TwitterNode = require('twitter-node').TwitterNode
+      , sys         = require('sys')
 
     // you can pass args to create() or set them on the TwitterNode instance
     var twit = new TwitterNode({
