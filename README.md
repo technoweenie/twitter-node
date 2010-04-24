@@ -36,7 +36,7 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
       password: 'password',
       track: ['baseball', 'football'],         // sports!
       follow: [12345, 67890],                  // follow these random users
-      locations: [122.75, 36.8, -121.75, 37.8] // tweets in SF
+      locations: [-122.75, 36.8, -121.75, 37.8] // tweets in SF
     });
 
     // adds to the track array set above
