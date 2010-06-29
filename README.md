@@ -56,6 +56,12 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
 
     twit.headers['User-Agent'] = 'whatever';
 
+    // Make sure you listen for errors, otherwise
+    // they are thrown
+    twit.addListener('error', function(error) {
+      console.log(error.message);
+    });
+
     twit
       .addListener('tweet', function(tweet) {
         sys.puts("@" + tweet.user.screen_name + ": " + tweet.text);
