@@ -1,7 +1,7 @@
 {
   "name": "twitter-node",
   "description": "node.js stream API for the twitter streaming HTTP API",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "technoweenie",
   "repository": {
     "type": "git",
