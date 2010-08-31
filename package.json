@@ -7,11 +7,6 @@
     "type": "git",
     "url": "http://github.com/technoweenie/twitter-node.git"
   },
-  "engine": [ "node >=0.1.99" ],
-  "scripts": {
-    "preinstall": "./build.sh"
-  },
-  "directories": {
-    "lib": "./lib/twitter-node"
-  }
+  "engine": [ "node >=0.2.0" ],
+  "main": "./lib/twitter-node"
 }
