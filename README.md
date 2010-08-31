@@ -6,10 +6,13 @@ Creates a streaming connection with twitter, and pushes any incoming statuses to
 
 Depends on ntest.
 
-There's no packaging system for node.js yet, so I've just been creating symlinks
-in my `~/.node_libraries` path.
+Use NPM:
 
-    $ ln -s /path/to/twitter-node/lib ~/.node_libraries/twitter-node
+    npm install twitter-node
+
+Otherwise create a symlink in `~/.node_libraries`
+
+    $ ln -s /path/to/twitter-node/lib/twitter-node ~/.node_libraries/twitter-node
 
 ## Events
 
