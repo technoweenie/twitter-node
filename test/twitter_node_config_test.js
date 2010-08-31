@@ -1,4 +1,4 @@
-var TwitterNode = require('../lib').TwitterNode,
+var TwitterNode = require('../lib/twitter-node').TwitterNode,
          assert = require('assert'),
             sys = require('sys');
 
@@ -6,7 +6,7 @@ process.mixin(GLOBAL, require('ntest'));
 
 describe("streaming json parser")
   it("accepts JSON in chunks", function() {
-    var parser  = require("../lib/streaming_json_parser"),
+    var parser  = require("../lib/twitter-node/parser"),
               p = new parser.instance(),
         result
 
