@@ -66,7 +66,7 @@ The stream() callback receives a Stream-like EventEmitter:
 ## Contributors
 
 - [Jeff Waugh](http://github.com/jdub) (author)
-- [rick](http://github.com/technoweenie) (parser.js)
+- [rick](http://github.com/technoweenie) (parser.js and, of course, `twitter-node`!)
 
 ## TODO
 
