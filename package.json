@@ -1,12 +1,15 @@
-{
-  "name": "twitter-node",
-  "description": "node.js stream API for the twitter streaming HTTP API",
-  "version": "0.0.2",
-  "author": "technoweenie",
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/technoweenie/twitter-node.git"
-  },
-  "engine": [ "node >=0.2.0" ],
-  "main": "./lib/twitter-node"
+{ "name": "node-twitter"
+, "description": "Asynchronous Twitter REST/stream client API for node.js."
+, "version": "0.1"
+, "author": "jdub"
+, "licenses":
+  [ { "type": "MIT"
+    , "url": http://github.com/jdub/node-twitter/raw/master/LICENSE"
+  } ]
+, "reponsitory":
+  { "type": "git"
+  , "url": "http://github.com/jdub/node-twitter.git"
+  }
+, "engine": [ "node >= 0.2" ]
+, "main": "./index"
 }
