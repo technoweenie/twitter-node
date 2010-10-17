@@ -73,3 +73,4 @@ The stream() callback receives a Stream-like EventEmitter:
 - Provide helper functions for Twitter authentication
 - Complete the convenience functions, preferably generated
 - Support [recommended reconnection behaviour](http://dev.twitter.com/pages/user_streams_suggestions) for the streaming APIs
+- Should probably implement basic auth for non-Twitter endpoints
