@@ -1,6 +1,6 @@
 { "name": "node-twitter"
 , "description": "Asynchronous Twitter REST/stream client API for node.js."
-, "version": "0.1"
+, "version": "0.1.0"
 , "author": "jdub"
 , "licenses":
   [ { "type": "MIT"
