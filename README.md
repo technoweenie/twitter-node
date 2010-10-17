@@ -1,9 +1,7 @@
 Asynchronous Twitter client API for node.js
 ===========================================
 
-`node-twitter` aims to provide a complete, asynchronous client library for Twitter (and other compliant endpoints), including REST, stream and search APIs.
-
-It was inspired by, and uses some code from, technoweenie's `twitter-node`.
+`node-twitter` aims to provide a complete, asynchronous client library for Twitter (and other compliant endpoints), including REST, stream and search APIs. It was inspired by, and uses some code from, technoweenie's `twitter-node`.
 
 ## Requirements
 
@@ -26,9 +24,10 @@ It's early days for `node-twitter`, so I'm going to assume a fair amount of know
 
 ### REST API
 
-Functions can be chained:
+Note that functions may be chained:
 
-	twit.verifyCredentials(function (data) {
+	twit
+		.verifyCredentials(function (data) {
 			sys.puts(sys.inspect(data));
 		})
 		.updateStatus(
@@ -40,7 +39,15 @@ Functions can be chained:
 
 ### Streaming API
 
-	twit.stream('user', {track:'nodejs', function(stream) {
+	twit.stream('statuses/sample', null, function(stream) {
+		stream.on('data', function (data) {
+			sys.puts(sys.inspect(data));
+		});
+	});
+
+`node-twitter` also supports user and site streams:
+
+	twit.stream('user', {track:'nodejs'}, function(stream) {
 		stream.on('data', function (data) {
 			sys.puts(sys.inspect(data));
 		});
@@ -50,3 +57,9 @@ Functions can be chained:
 
 - [Jeff Waugh](http://github.com/jdub) (author)
 - [rick](http://github.com/technoweenie) (parser.js)
+
+## TODO
+
+- Provide helper functions for Twitter authentication
+- Complete the convenience functions, preferably generated
+- Support [recommended reconnection behaviour](http://dev.twitter.com/pages/user_streams_suggestions) for the streaming APIs
