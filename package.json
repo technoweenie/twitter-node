@@ -4,7 +4,7 @@
 , "author": "jdub"
 , "licenses":
   [ { "type": "MIT"
-    , "url": http://github.com/jdub/node-twitter/raw/master/LICENSE"
+    , "url": "http://github.com/jdub/node-twitter/raw/master/LICENSE"
   } ]
 , "repository":
   { "type": "git"
