@@ -22,9 +22,17 @@ It's early days for `node-twitter`, so I'm going to assume a fair amount of know
 		access_token_secret: 'STATE YOUR NAME'
 	});
 
+### Basic OAuth-enticated GET/POST API
+
+The convenience APIs aren't finished, but you can get started with the basics:
+
+	twit.get('/statuses/show/27593302936.json', {include_entities:true}, function(data) {
+		sys.puts(sys.inspect(data));
+	});
+
 ### REST API
 
-Note that functions may be chained:
+Note that all functions may be chained:
 
 	twit
 		.verifyCredentials(function (data) {
@@ -38,6 +46,8 @@ Note that functions may be chained:
 		);
 
 ### Streaming API
+
+The stream() callback receives a Stream-like EventEmitter:
 
 	twit.stream('statuses/sample', null, function(stream) {
 		stream.on('data', function (data) {
