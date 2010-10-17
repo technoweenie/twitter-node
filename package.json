@@ -6,7 +6,7 @@
   [ { "type": "MIT"
     , "url": http://github.com/jdub/node-twitter/raw/master/LICENSE"
   } ]
-, "reponsitory":
+, "repository":
   { "type": "git"
   , "url": "http://github.com/jdub/node-twitter.git"
   }
