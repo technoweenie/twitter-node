@@ -12,7 +12,7 @@ Asynchronous Twitter client API for node.js
 
 It's early days for `node-twitter`, so I'm going to assume a fair amount of knowledge for the moment. Better documentation to come as we head towards a stable release.
 
-### Setup
+### Setup API (stable)
 
 	var sys = require('sys'), twitter = require('node-twitter');
 	var twit = new twitter({
@@ -22,7 +22,7 @@ It's early days for `node-twitter`, so I'm going to assume a fair amount of know
 		access_token_secret: 'STATE YOUR NAME'
 	});
 
-### Basic OAuth-enticated GET/POST API
+### Basic OAuth-enticated GET/POST API (stable)
 
 The convenience APIs aren't finished, but you can get started with the basics:
 
@@ -30,7 +30,7 @@ The convenience APIs aren't finished, but you can get started with the basics:
 		sys.puts(sys.inspect(data));
 	});
 
-### REST API
+### REST API (unstable, may change)
 
 Note that all functions may be chained:
 
@@ -45,11 +45,11 @@ Note that all functions may be chained:
 			}
 		);
 
-### Streaming API
+### Streaming API (stable)
 
 The stream() callback receives a Stream-like EventEmitter:
 
-	twit.stream('statuses/sample', null, function(stream) {
+	twit.stream('statuses/sample', function(stream) {
 		stream.on('data', function (data) {
 			sys.puts(sys.inspect(data));
 		});
