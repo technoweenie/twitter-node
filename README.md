@@ -37,6 +37,8 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
     var twit = new TwitterNode({
       user: 'username', 
       password: 'password',
+      host: 'my_proxy.my_company.com',         // proxy server name or ip addr
+      port: 8080,							   // proxy port!
       track: ['baseball', 'football'],         // sports!
       follow: [12345, 67890],                  // follow these random users
       locations: [-122.75, 36.8, -121.75, 37.8] // tweets in SF
