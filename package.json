@@ -1,6 +1,8 @@
-{ "name": "node-twitter"
-, "description": "Asynchronous Twitter REST/stream client API for node.js."
-, "version": "0.1.0"
+{ "name": "twitter"
+, "version": "v0.1.0"
+, "description": "Asynchronous Twitter REST/stream/search client API for node.js."
+, "keywords": ["twitter","streaming","oauth"]
+, "homepage": "https://github.com/jdub/node-twitter"
 , "author": "jdub"
 , "licenses":
   [ { "type": "MIT"
@@ -10,6 +12,7 @@
   { "type": "git"
   , "url": "http://github.com/jdub/node-twitter.git"
   }
-, "engine": [ "node >= 0.2" ]
-, "main": "./index"
+, "dependencies": {"oauth": ">=0.8.4"}
+, "engines": ["node >=0.2.0"]
+, "main": "./lib/twitter"
 }
