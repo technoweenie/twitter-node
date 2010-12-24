@@ -1,7 +1,7 @@
 Asynchronous Twitter client API for node.js
 ===========================================
 
-`node-twitter` aims to provide a complete, asynchronous client library for Twitter (and other compliant endpoints), including REST, stream and search APIs. It was inspired by, and uses some code from, technoweenie's `twitter-node`.
+[node-twitter](https://github.com/jdub/node-twitter) aims to provide a complete, asynchronous client library for Twitter (and other compliant endpoints), including REST, stream and search APIs. It was inspired by, and uses some code from, technoweenie's [twitter-node](https://github.com/technoweenie/twitter-node).
 
 ## Requirements
 
@@ -12,7 +12,7 @@ You can install node-twitter and its dependencies with npm: `npm install twitter
 
 ## Getting started
 
-It's early days for `node-twitter`, so I'm going to assume a fair amount of knowledge for the moment. Better documentation to come as we head towards a stable release.
+It's early days for node-twitter, so I'm going to assume a fair amount of knowledge for the moment. Better documentation to come as we head towards a stable release.
 
 ### Setup API (stable)
 
@@ -48,6 +48,12 @@ Note that all functions may be chained:
 			}
 		);
 
+### Search API (unstable, may change)
+
+	twit.search('nodejs OR #node', function(data) {
+		sys.puts(sys.inspect(data));
+	});
+
 ### Streaming API (stable)
 
 The stream() callback receives a Stream-like EventEmitter:
@@ -58,7 +64,7 @@ The stream() callback receives a Stream-like EventEmitter:
 		});
 	});
 
-`node-twitter` also supports user and site streams:
+node-twitter also supports user and site streams:
 
 	twit.stream('user', {track:'nodejs'}, function(stream) {
 		stream.on('data', function (data) {
@@ -71,7 +77,7 @@ The stream() callback receives a Stream-like EventEmitter:
 ## Contributors
 
 - [Jeff Waugh](http://github.com/jdub) (author)
-- [rick](http://github.com/technoweenie) (parser.js and, of course, `twitter-node`!)
+- [rick](http://github.com/technoweenie) (parser.js and, of course, twitter-node!)
 
 ## TODO
 
