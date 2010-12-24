@@ -5,6 +5,8 @@ Asynchronous Twitter client API for node.js
 
 ## Requirements
 
+You can install node-twitter and its dependencies with npm: `npm install twitter`.
+
 - node 0.2+
 - [node-oauth](http://github.com/ciaranj/node-oauth)
 
@@ -14,7 +16,8 @@ It's early days for `node-twitter`, so I'm going to assume a fair amount of know
 
 ### Setup API (stable)
 
-	var sys = require('sys'), twitter = require('node-twitter');
+	var sys = require('sys'),
+	    twitter = require('twitter');
 	var twit = new twitter({
 		consumer_key: 'STATE YOUR NAME',
 		consumer_secret: 'STATE YOUR NAME',
@@ -61,6 +64,8 @@ The stream() callback receives a Stream-like EventEmitter:
 		stream.on('data', function (data) {
 			sys.puts(sys.inspect(data));
 		});
+		// Disconnect stream after five seconds
+		setTimeout(stream.destroy, 5000);
 	});
 
 ## Contributors
