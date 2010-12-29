@@ -1,42 +1,47 @@
-How to run the test which produced the numbers below (on i386):
+To run the test which produced the numbers below (on i386, node 0.2.5,
+with node-twitter 0.1.4), add your oauth details to memory.js and run:
 
   node memory.js | grep '^{"rss'
 
 First report 15s after connection:
 
-{"rss":13041664,"vsize":47878144,"heapTotal":8291904,"heapUsed":4444344}
+{"rss":15527936,"vsize":641900544,"heapTotal":9790784,"heapUsed":6038032,"tweets":141}
 
-Then every 60s thereafter:
+Then every 60s thereafter, for 35min:
 
-{"rss":17924096,"vsize":49508352,"heapTotal":13595968,"heapUsed":5689880}
-{"rss":20168704,"vsize":49651712,"heapTotal":13595968,"heapUsed":4769056}
-{"rss":15855616,"vsize":49524736,"heapTotal":9291008,"heapUsed":4545252}
-{"rss":15253504,"vsize":49131520,"heapTotal":8907488,"heapUsed":5856548}
-{"rss":19894272,"vsize":49524736,"heapTotal":13477152,"heapUsed":3486100}
-{"rss":20156416,"vsize":49655808,"heapTotal":13607712,"heapUsed":8360452}
-{"rss":20303872,"vsize":49786880,"heapTotal":13730112,"heapUsed":7220724}
-{"rss":26058752,"vsize":49786880,"heapTotal":22118720,"heapUsed":9865148}
-{"rss":15511552,"vsize":49131520,"heapTotal":8915648,"heapUsed":4909208}
-{"rss":19943424,"vsize":49393664,"heapTotal":13371072,"heapUsed":5966648}
-{"rss":19996672,"vsize":49393664,"heapTotal":13371072,"heapUsed":5700136}
-{"rss":19996672,"vsize":49393664,"heapTotal":21759680,"heapUsed":4550016}
-{"rss":27049984,"vsize":49823744,"heapTotal":22004480,"heapUsed":11267648}
-{"rss":11440128,"vsize":48381952,"heapTotal":5945376,"heapUsed":3679000}
-{"rss":15757312,"vsize":49430528,"heapTotal":9038048,"heapUsed":5814212}
-{"rss":13111296,"vsize":48795648,"heapTotal":6810336,"heapUsed":4603744}
-{"rss":12132352,"vsize":48402432,"heapTotal":6451296,"heapUsed":4550732}
-{"rss":13070336,"vsize":48963584,"heapTotal":6810336,"heapUsed":3772056}
-{"rss":15548416,"vsize":49225728,"heapTotal":9152288,"heapUsed":4010320}
-{"rss":13328384,"vsize":49131520,"heapTotal":6818496,"heapUsed":3952556}
-{"rss":13574144,"vsize":49393664,"heapTotal":9152288,"heapUsed":4887608}
-{"rss":17846272,"vsize":49393664,"heapTotal":13346592,"heapUsed":6101844}
-{"rss":20217856,"vsize":49655808,"heapTotal":13599552,"heapUsed":7919716}
-{"rss":20238336,"vsize":49655808,"heapTotal":13599552,"heapUsed":7232328}
-{"rss":24432640,"vsize":49655808,"heapTotal":21988160,"heapUsed":4275432}
-{"rss":28626944,"vsize":49655808,"heapTotal":21988160,"heapUsed":11369264}
-{"rss":27348992,"vsize":48775168,"heapTotal":21008960,"heapUsed":8301764}
-{"rss":13099008,"vsize":48836608,"heapTotal":6810336,"heapUsed":3562344}
-{"rss":12255232,"vsize":48476160,"heapTotal":6328896,"heapUsed":4643172}
-{"rss":10420224,"vsize":47427584,"heapTotal":4284800,"heapUsed":3269128}
-{"rss":11419648,"vsize":47759360,"heapTotal":6075936,"heapUsed":3968820}
-{"rss":10698752,"vsize":47529984,"heapTotal":4660160,"heapUsed":3752188}
+{"rss":27459584,"vsize":647766016,"heapTotal":19803168,"heapUsed":13285208,"tweets":657}
+{"rss":22380544,"vsize":643698688,"heapTotal":22838656,"heapUsed":6190456,"tweets":748}
+{"rss":30773248,"vsize":643698688,"heapTotal":22642048,"heapUsed":5910000,"tweets":704}
+{"rss":29765632,"vsize":642478080,"heapTotal":22895008,"heapUsed":9168464,"tweets":739}
+{"rss":30179328,"vsize":642478080,"heapTotal":23147968,"heapUsed":11336200,"tweets":733}
+{"rss":30265344,"vsize":642641920,"heapTotal":23147968,"heapUsed":12100416,"tweets":718}
+{"rss":30265344,"vsize":642641920,"heapTotal":23147968,"heapUsed":13586760,"tweets":749}
+{"rss":29929472,"vsize":642641920,"heapTotal":23147968,"heapUsed":13601368,"tweets":704}
+{"rss":17620992,"vsize":642904064,"heapTotal":10565056,"heapUsed":7058816,"tweets":696}
+{"rss":22384640,"vsize":643166208,"heapTotal":15265280,"heapUsed":7695208,"tweets":684}
+{"rss":17006592,"vsize":642379776,"heapTotal":10059136,"heapUsed":4284960,"tweets":711}
+{"rss":20664320,"vsize":643166208,"heapTotal":15265280,"heapUsed":6914808,"tweets":715}
+{"rss":22790144,"vsize":643858432,"heapTotal":15771200,"heapUsed":4315080,"tweets":662}
+{"rss":25657344,"vsize":642809856,"heapTotal":23147968,"heapUsed":4594064,"tweets":640}
+{"rss":30515200,"vsize":643072000,"heapTotal":23400928,"heapUsed":10476240,"tweets":743}
+{"rss":32022528,"vsize":644182016,"heapTotal":24412768,"heapUsed":8017896,"tweets":657}
+{"rss":32022528,"vsize":644182016,"heapTotal":24412768,"heapUsed":7963008,"tweets":674}
+{"rss":15876096,"vsize":642871296,"heapTotal":10059136,"heapUsed":6927168,"tweets":641}
+{"rss":20680704,"vsize":643657728,"heapTotal":15265280,"heapUsed":5066976,"tweets":690}
+{"rss":22872064,"vsize":643657728,"heapTotal":15265280,"heapUsed":6455424,"tweets":687}
+{"rss":22872064,"vsize":643657728,"heapTotal":23653888,"heapUsed":6919480,"tweets":656}
+{"rss":31260672,"vsize":643657728,"heapTotal":23653888,"heapUsed":6173176,"tweets":661}
+{"rss":31260672,"vsize":643657728,"heapTotal":23653888,"heapUsed":6080648,"tweets":680}
+{"rss":28975104,"vsize":641822720,"heapTotal":21377248,"heapUsed":5601232,"tweets":673}
+{"rss":30646272,"vsize":643133440,"heapTotal":23147968,"heapUsed":5209176,"tweets":637}
+{"rss":30752768,"vsize":643133440,"heapTotal":23147968,"heapUsed":4720920,"tweets":637}
+{"rss":30752768,"vsize":643133440,"heapTotal":23147968,"heapUsed":4569576,"tweets":650}
+{"rss":30752768,"vsize":643133440,"heapTotal":23147968,"heapUsed":4492312,"tweets":676}
+{"rss":30752768,"vsize":643133440,"heapTotal":23147968,"heapUsed":4437336,"tweets":679}
+{"rss":12754944,"vsize":641822720,"heapTotal":5648608,"heapUsed":4657520,"tweets":589}
+{"rss":20058112,"vsize":643657728,"heapTotal":15012320,"heapUsed":8459776,"tweets":676}
+{"rss":22872064,"vsize":643657728,"heapTotal":15265280,"heapUsed":7028616,"tweets":687}
+{"rss":22872064,"vsize":643657728,"heapTotal":15265280,"heapUsed":7665040,"tweets":668}
+{"rss":27246592,"vsize":643657728,"heapTotal":23906848,"heapUsed":6439720,"tweets":660}
+{"rss":13398016,"vsize":641822720,"heapTotal":6697184,"heapUsed":4230248,"tweets":643}
+{"rss":17928192,"vsize":643657728,"heapTotal":15012320,"heapUsed":7473880,"tweets":684}

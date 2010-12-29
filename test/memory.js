@@ -1,7 +1,11 @@
 var	sys = require('sys'),
 	twitter = require('twitter');
 
+var	count = 0,
+	lastc = 0;
+
 function tweet(data) {
+	count++;
 	if ( typeof data === 'string' )
 		sys.puts(data);
 	else if ( data.text && data.user && data.user.screen_name )
@@ -13,7 +17,11 @@ function tweet(data) {
 }
 
 function memrep() {
-	console.log(JSON.stringify(process.memoryUsage()));
+	var rep = process.memoryUsage();
+	rep.tweets = count - lastc;
+	lastc = count;
+	console.log(JSON.stringify(rep));
+	// next report in 60 seconds
 	setTimeout(memrep, 60000);
 }
 
@@ -25,5 +33,6 @@ var twit = new twitter({
 })
 .stream('statuses/sample', function(stream) {
 	stream.on('data', tweet);
+	// first report in 15 seconds
 	setTimeout(memrep, 15000);
 })
