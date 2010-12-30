@@ -1,13 +1,18 @@
-To run the test which produced the numbers below (on i386, node 0.2.5,
-with node-twitter 0.1.4), add your oauth details to memory.js and run:
+twitter.stream() memory test
+============================
 
-  node memory.js | grep '^{"rss'
+Add your oauth details to memory.js and run: node memory.js | grep '^{"rss'
+All tests run with node-twitter 0.1.4 on amd64.
+
+
+node 0.2.5
+----------
 
 First report 15s after connection:
 
 {"rss":15527936,"vsize":641900544,"heapTotal":9790784,"heapUsed":6038032,"tweets":141}
 
-Then every 60s thereafter, for 35min:
+Then every 60s thereafter, for 10min:
 
 {"rss":27459584,"vsize":647766016,"heapTotal":19803168,"heapUsed":13285208,"tweets":657}
 {"rss":22380544,"vsize":643698688,"heapTotal":22838656,"heapUsed":6190456,"tweets":748}
@@ -19,29 +24,24 @@ Then every 60s thereafter, for 35min:
 {"rss":29929472,"vsize":642641920,"heapTotal":23147968,"heapUsed":13601368,"tweets":704}
 {"rss":17620992,"vsize":642904064,"heapTotal":10565056,"heapUsed":7058816,"tweets":696}
 {"rss":22384640,"vsize":643166208,"heapTotal":15265280,"heapUsed":7695208,"tweets":684}
-{"rss":17006592,"vsize":642379776,"heapTotal":10059136,"heapUsed":4284960,"tweets":711}
-{"rss":20664320,"vsize":643166208,"heapTotal":15265280,"heapUsed":6914808,"tweets":715}
-{"rss":22790144,"vsize":643858432,"heapTotal":15771200,"heapUsed":4315080,"tweets":662}
-{"rss":25657344,"vsize":642809856,"heapTotal":23147968,"heapUsed":4594064,"tweets":640}
-{"rss":30515200,"vsize":643072000,"heapTotal":23400928,"heapUsed":10476240,"tweets":743}
-{"rss":32022528,"vsize":644182016,"heapTotal":24412768,"heapUsed":8017896,"tweets":657}
-{"rss":32022528,"vsize":644182016,"heapTotal":24412768,"heapUsed":7963008,"tweets":674}
-{"rss":15876096,"vsize":642871296,"heapTotal":10059136,"heapUsed":6927168,"tweets":641}
-{"rss":20680704,"vsize":643657728,"heapTotal":15265280,"heapUsed":5066976,"tweets":690}
-{"rss":22872064,"vsize":643657728,"heapTotal":15265280,"heapUsed":6455424,"tweets":687}
-{"rss":22872064,"vsize":643657728,"heapTotal":23653888,"heapUsed":6919480,"tweets":656}
-{"rss":31260672,"vsize":643657728,"heapTotal":23653888,"heapUsed":6173176,"tweets":661}
-{"rss":31260672,"vsize":643657728,"heapTotal":23653888,"heapUsed":6080648,"tweets":680}
-{"rss":28975104,"vsize":641822720,"heapTotal":21377248,"heapUsed":5601232,"tweets":673}
-{"rss":30646272,"vsize":643133440,"heapTotal":23147968,"heapUsed":5209176,"tweets":637}
-{"rss":30752768,"vsize":643133440,"heapTotal":23147968,"heapUsed":4720920,"tweets":637}
-{"rss":30752768,"vsize":643133440,"heapTotal":23147968,"heapUsed":4569576,"tweets":650}
-{"rss":30752768,"vsize":643133440,"heapTotal":23147968,"heapUsed":4492312,"tweets":676}
-{"rss":30752768,"vsize":643133440,"heapTotal":23147968,"heapUsed":4437336,"tweets":679}
-{"rss":12754944,"vsize":641822720,"heapTotal":5648608,"heapUsed":4657520,"tweets":589}
-{"rss":20058112,"vsize":643657728,"heapTotal":15012320,"heapUsed":8459776,"tweets":676}
-{"rss":22872064,"vsize":643657728,"heapTotal":15265280,"heapUsed":7028616,"tweets":687}
-{"rss":22872064,"vsize":643657728,"heapTotal":15265280,"heapUsed":7665040,"tweets":668}
-{"rss":27246592,"vsize":643657728,"heapTotal":23906848,"heapUsed":6439720,"tweets":660}
-{"rss":13398016,"vsize":641822720,"heapTotal":6697184,"heapUsed":4230248,"tweets":643}
-{"rss":17928192,"vsize":643657728,"heapTotal":15012320,"heapUsed":7473880,"tweets":684}
+
+
+node 0.3.2
+----------
+
+First report 15s after connection:
+
+{"rss":15224832,"vsize":643862528,"heapTotal":8507456,"heapUsed":5220336,"tweets":181}
+
+Then every 60s thereafter, for 10min:
+
+{"rss":16572416,"vsize":643997696,"heapTotal":9029696,"heapUsed":5498744,"tweets":696}
+{"rss":11419648,"vsize":643899392,"heapTotal":4716608,"heapUsed":2667984,"tweets":707}
+{"rss":14233600,"vsize":644161536,"heapTotal":6548544,"heapUsed":3583680,"tweets":749}
+{"rss":16539648,"vsize":644161536,"heapTotal":8906816,"heapUsed":3567664,"tweets":735}
+{"rss":16592896,"vsize":644161536,"heapTotal":8906816,"heapUsed":5034392,"tweets":734}
+{"rss":16592896,"vsize":644161536,"heapTotal":8906816,"heapUsed":5489256,"tweets":711}
+{"rss":12730368,"vsize":643899392,"heapTotal":5765184,"heapUsed":3313272,"tweets":698}
+{"rss":13983744,"vsize":644161536,"heapTotal":6287424,"heapUsed":4020752,"tweets":761}
+{"rss":16306176,"vsize":644161536,"heapTotal":8645696,"heapUsed":4063720,"tweets":742}
+{"rss":15040512,"vsize":644161536,"heapTotal":8645696,"heapUsed":5595896,"tweets":695}
