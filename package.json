@@ -12,7 +12,10 @@
   { "type": "git"
   , "url": "http://github.com/jdub/node-twitter.git"
   }
-, "dependencies": {"oauth": ">=0.8.4"}
+, "dependencies":
+  { "oauth": ">=0.8.4"
+  , "cookie": ">=0.1.4"
+  }
 , "engines": ["node >=0.2.0"]
 , "main": "./lib/twitter"
 }
