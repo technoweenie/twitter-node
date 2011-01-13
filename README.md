@@ -7,8 +7,9 @@ Asynchronous Twitter client API for node.js
 
 You can install node-twitter and its dependencies with npm: `npm install twitter`.
 
-- node 0.2+
-- [node-oauth](http://github.com/ciaranj/node-oauth)
+- [node](http://nodejs.org/) v0.2+
+- [node-oauth](https://github.com/ciaranj/node-oauth)
+- [cookie-node](https://github.com/jed/cookie-node)
 
 ## Getting started
 
@@ -81,7 +82,6 @@ node-twitter also supports user and site streams:
 
 ## TODO
 
-- Provide helper functions for Twitter OAuth-entication transaction
 - Complete the convenience functions, preferably generated
 - Support [recommended reconnection behaviour](http://dev.twitter.com/pages/user_streams_suggestions) for the streaming APIs
 - Should probably implement basic auth for non-Twitter endpoints
