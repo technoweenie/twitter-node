@@ -42,8 +42,7 @@ Note that all functions may be chained:
 		.verifyCredentials(function (data) {
 			sys.puts(sys.inspect(data));
 		})
-		.updateStatus(
-			{ status: 'Test tweet from node-twitter/' + twitter.VERSION },
+		.updateStatus('Test tweet from node-twitter/' + twitter.VERSION,
 			function (data) {
 				sys.puts(sys.inspect(data));
 			}
