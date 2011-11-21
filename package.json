@@ -1,11 +1,14 @@
 {
   "name": "twitter-node",
   "description": "node.js stream API for the twitter streaming HTTP API",
-  "version": "0.0.2",
-  "author": "technoweenie",
+  "version": "0.0.3",
+  "author": {"name": "technoweenie"},
+  "contributors": [
+    {"name": "cvee"}
+  ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/technoweenie/twitter-node.git"
+    "url": "http://github.com/istrategylabs/twitter-node.git"
   },
   "engine": [ "node >=0.2.0" ],
   "main": "./lib/twitter-node"
