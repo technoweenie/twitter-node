@@ -1,7 +1,7 @@
 Twitter API client library for node.js
 ======================================
 
-[node-twitter](https://github.com/jdub/node-twitter) aims to provide a complete, asynchronous client library for the Twitter API, including the REST, search and streaming endpoints. It was inspired by, and uses some code from, @technoweenie's [twitter-node](https://github.com/technoweenie/twitter-node).
+[node-twitter](https://github.com/jdub/node-twitter) aims to provide a complete, asynchronous client library for the Twitter API, including the REST, search and streaming endpoints. It was inspired by, and uses some code from, [@technoweenie](https://github.com/technoweenie)'s [twitter-node](https://github.com/technoweenie/twitter-node).
 
 ## Requirements
 
@@ -77,7 +77,7 @@ node-twitter also supports user and site streams:
 ## Contributors
 
 - [Jeff Waugh](https://github.com/jdub) (author)
-- [technoweenie](https://github.com/technoweenie) (parser.js and, of course, twitter-node!)
+- [@technoweenie](https://github.com/technoweenie) (parser.js and, of course, twitter-node!)
 - Lots of [wonderful helper elves](https://github.com/jdub/node-twitter/contributors) on GitHub
 
 ## TODO
