@@ -17,7 +17,7 @@ It's early days for node-twitter, so I'm going to assume a fair amount of knowle
 
 ### Setup API (stable)
 
-	var util = require('util');
+	var util = require('util'),
 		twitter = require('twitter');
 	var twit = new twitter({
 		consumer_key: 'STATE YOUR NAME',
