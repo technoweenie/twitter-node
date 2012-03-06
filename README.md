@@ -7,9 +7,9 @@ Asynchronous Twitter client API for node.js
 
 You can install node-twitter and its dependencies with npm: `npm install twitter`.
 
-- [node](http://nodejs.org/) v0.2+
+- [node](http://nodejs.org/) v0.6+
 - [node-oauth](https://github.com/ciaranj/node-oauth)
-- [cookie-node](https://github.com/jed/cookie-node)
+- [cookies](https://github.com/jed/cookies)
 
 ## Getting started
 
@@ -17,8 +17,8 @@ It's early days for node-twitter, so I'm going to assume a fair amount of knowle
 
 ### Setup API (stable)
 
-	var sys = require('sys'),
-	    twitter = require('twitter');
+	var util = require('util');
+		twitter = require('twitter');
 	var twit = new twitter({
 		consumer_key: 'STATE YOUR NAME',
 		consumer_secret: 'STATE YOUR NAME',
@@ -31,7 +31,7 @@ It's early days for node-twitter, so I'm going to assume a fair amount of knowle
 The convenience APIs aren't finished, but you can get started with the basics:
 
 	twit.get('/statuses/show/27593302936.json', {include_entities:true}, function(data) {
-		sys.puts(sys.inspect(data));
+		console.log(util.inspect(data));
 	});
 
 ### REST API (unstable, may change)
@@ -39,19 +39,19 @@ The convenience APIs aren't finished, but you can get started with the basics:
 Note that all functions may be chained:
 
 	twit
-		.verifyCredentials(function (data) {
-			sys.puts(sys.inspect(data));
+		.verifyCredentials(function(data) {
+			console.log(util.inspect(data));
 		})
 		.updateStatus('Test tweet from node-twitter/' + twitter.VERSION,
-			function (data) {
-				sys.puts(sys.inspect(data));
+			function(data) {
+				console.log(util.inspect(data));
 			}
 		);
 
 ### Search API (unstable, may change)
 
 	twit.search('nodejs OR #node', function(data) {
-		sys.puts(sys.inspect(data));
+		console.log(util.inspect(data));
 	});
 
 ### Streaming API (stable)
@@ -59,16 +59,16 @@ Note that all functions may be chained:
 The stream() callback receives a Stream-like EventEmitter:
 
 	twit.stream('statuses/sample', function(stream) {
-		stream.on('data', function (data) {
-			sys.puts(sys.inspect(data));
+		stream.on('data', function(data) {
+			console.log(util.inspect(data));
 		});
 	});
 
 node-twitter also supports user and site streams:
 
 	twit.stream('user', {track:'nodejs'}, function(stream) {
-		stream.on('data', function (data) {
-			sys.puts(sys.inspect(data));
+		stream.on('data', function(data) {
+			console.log(util.inspect(data));
 		});
 		// Disconnect stream after five seconds
 		setTimeout(stream.destroy, 5000);
@@ -78,9 +78,9 @@ node-twitter also supports user and site streams:
 
 - [Jeff Waugh](http://github.com/jdub) (author)
 - [rick](http://github.com/technoweenie) (parser.js and, of course, twitter-node!)
+- Lots of [wonderful helper elves](https://github.com/jdub/node-twitter/contributors) on GitHub
 
 ## TODO
 
 - Complete the convenience functions, preferably generated
-- Support [recommended reconnection behaviour](http://dev.twitter.com/pages/user_streams_suggestions) for the streaming APIs
-- Should probably implement basic auth for non-Twitter endpoints
+- Fix ALL THE THINGS! on the GitHub [issues list](https://github.com/jdub/node-twitter/issues)
