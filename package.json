@@ -1,8 +1,11 @@
 {
   "name": "twitter-node",
   "description": "node.js stream API for the twitter streaming HTTP API",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "technoweenie",
+  "contributors": [
+    { "name": "Makis Tracend", "email": "makis.tracend@gmail.com" }
+  ], 
   "repository": {
     "type": "git",
     "url": "http://github.com/technoweenie/twitter-node.git"
