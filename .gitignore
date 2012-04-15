@@ -1,3 +1,4 @@
 *build/
 *.lock-wscript
 *.node
+.DS_Store
