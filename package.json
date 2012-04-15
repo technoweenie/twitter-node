@@ -1,10 +1,15 @@
 {
   "name": "twitter-node",
   "description": "node.js stream API for the twitter streaming HTTP API",
-  "version": "0.1.0",
-  "author": {"name": "technoweenie"},
+  "version": "0.1.1",
+  "author": {"name": "technoweenie" },
   "contributors": [
-    {"name": "cvee"}
+    { "name": "tim-smart" }, 
+	{ "name": "Chris Verwymeren", "email": "verwymeren@gmail.com", "web": "http://www.github.com/cvee" }, 
+	{ "name": "Makis Tracend", "email": "makis.tracend@gmail.com", "web": "http://www.github.com/tracend" }, 
+	{ "name": "Dustin Dobervich", "email": "ddobervich@gmail.com", "web": "http://www.github.com/dustin10" },
+	{ "name": "Chris M. Welsh", "email": "chris@cmwelsh.com", "web": "http://www.github.com/cmwelsh" },
+	{ "name": "Michael Nutt", "email": "michael@nuttnet.net", "web": "http://www.github.com/mnutt" }
   ],
   "repository": {
     "type": "git",
