@@ -1,6 +1,6 @@
 var TwitterNode = require('../lib/twitter-node').TwitterNode,
          assert = require('assert'),
-            sys = require('sys');
+            util = require('util');
 
 process.mixin(GLOBAL, require('ntest'));
 

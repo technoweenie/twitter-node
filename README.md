@@ -31,7 +31,7 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
 
     // twitter-node does not modify GLOBAL, that's so rude
     var TwitterNode = require('twitter-node').TwitterNode
-      , sys         = require('sys')
+      , util         = require('util')
 
     // you can pass args to create() or set them on the TwitterNode instance
     var twit = new TwitterNode({
@@ -69,19 +69,19 @@ See the [streaming API docs][api-docs] for examples of the limit and delete comm
 
     twit
       .addListener('tweet', function(tweet) {
-        sys.puts("@" + tweet.user.screen_name + ": " + tweet.text);
+        util.puts("@" + tweet.user.screen_name + ": " + tweet.text);
       })
 
       .addListener('limit', function(limit) {
-        sys.puts("LIMIT: " + sys.inspect(limit));
+        util.puts("LIMIT: " + util.inspect(limit));
       })
 
       .addListener('delete', function(del) {
-        sys.puts("DELETE: " + sys.inspect(del));
+        util.puts("DELETE: " + util.inspect(del));
       })
 
       .addListener('end', function(resp) {
-        sys.puts("wave goodbye... " + resp.statusCode);
+        util.puts("wave goodbye... " + resp.statusCode);
       })
 
       .stream();
