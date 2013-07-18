@@ -1,16 +1,16 @@
 { "name": "twitter"
-, "version": "v0.1.18"
+, "version": "v0.2.0"
 , "description": "Twitter API client library for node.js"
 , "keywords": ["twitter","streaming","oauth"]
-, "homepage": "https://github.com/jdub/node-twitter"
-, "author": "jdub"
+, "homepage": "https://github.com/desmondmorris/node-twitter"
+, "author": "jdub, changes by desmondmorris"
 , "licenses":
   [ { "type": "MIT"
-    , "url": "http://github.com/jdub/node-twitter/raw/master/LICENSE"
+    , "url": "http://github.com/desmondmorris/node-twitter/raw/master/LICENSE"
   } ]
 , "repository":
   { "type": "git"
-  , "url": "http://github.com/jdub/node-twitter.git"
+  , "url": "https://github.com/desmondmorris/node-twitter"
   }
 , "dependencies":
   { "oauth": ">=0.8.4"
