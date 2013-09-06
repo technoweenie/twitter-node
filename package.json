@@ -1,5 +1,5 @@
 { "name": "twitter"
-, "version": "v0.2.0"
+, "version": "v0.2.2"
 , "description": "Twitter API client library for node.js"
 , "keywords": ["twitter","streaming","oauth"]
 , "homepage": "https://github.com/desmondmorris/node-twitter"
