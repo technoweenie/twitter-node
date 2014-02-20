@@ -26,6 +26,18 @@ It's early days for node-twitter, so I'm going to assume a fair amount of knowle
 		access_token_secret: 'STATE YOUR NAME'
 	});
 
+### Authenticate
+
+The format of this depends somewhat on how your routing works, but it should be clear enough.
+
+    app.get('/', twit.gatekeeper('/login'), routes.index);
+    app.get('/login', routes.login);
+    app.get('/twauth', twit.login());
+
+You'll need to create the routes for index & login. On the login page, you'll want a link like:
+
+    <a href="/twauth">Log in with Twitter</a>
+
 ### Basic OAuth-enticated GET/POST API (stable)
 
 The convenience APIs aren't finished, but you can get started with the basics:
