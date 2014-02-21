@@ -85,14 +85,3 @@ node-twitter also supports user, filter and site streams:
 		// Disconnect stream after five seconds
 		setTimeout(stream.destroy, 5000);
 	});
-
-## Contributors
-
-- [Jeff Waugh](https://github.com/jdub) (author)
-- [@technoweenie](https://github.com/technoweenie) (parser.js and, of course, twitter-node!)
-- Lots of [wonderful helper elves](https://github.com/desmondmorris/node-twitter/graphs/contributors) on GitHub
-
-## TODO
-
-- Complete the convenience functions, preferably generated
-- Fix ALL THE THINGS! on the GitHub [issues list](https://github.com/desmondmorris/node-twitter/issues)
