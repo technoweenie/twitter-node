@@ -85,3 +85,21 @@ node-twitter also supports user, filter and site streams:
 		// Disconnect stream after five seconds
 		setTimeout(stream.destroy, 5000);
 	});
+
+new added events
+
+this library now supports new added events which you can listen on.
+
+`follow`
+`favorite`
+`unfavorite`
+`block`
+`unblock`
+`list_created`
+`list_destroyed`
+`list_updated`
+`list_member_added`
+`list_member_removed`
+`list_user_subscribed`
+`list_user_unsubscribed`
+`user_update`
