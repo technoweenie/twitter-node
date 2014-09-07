@@ -1,6 +1,6 @@
 {
     "name": "twitter",
-    "version": "v0.2.9",
+    "version": "v0.2.11",
     "description": "Twitter API client library for node.js",
     "keywords": [
         "twitter",
