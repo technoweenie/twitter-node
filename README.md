@@ -42,8 +42,8 @@ You'll need to create the routes for index & login. On the login page, you'll wa
 
 The convenience APIs aren't finished, but you can get started with the basics:
 
-	twit.get('/statuses/show/27593302936.json', {include_entities:true}, function(data) {
-		console.log(util.inspect(data));
+	twit.get('/statuses/show/27593302936.json', {include_entities:true}, function(data, res) {
+		console.log(util.inspect(data), res.statusCode);
 	});
 
 ### REST API (unstable, may change)
