@@ -1,105 +1,115 @@
 Twitter API client library for node.js
 ======================================
 
-[node-twitter](https://github.com/desmondmorris/node-twitter) aims to provide a complete, asynchronous client library for the Twitter API, including the REST, search and streaming endpoints. It was inspired by, and uses some code from, [@technoweenie](https://github.com/technoweenie)'s [twitter-node](https://github.com/technoweenie/twitter-node).
+[node-twitter](https://github.com/desmondmorris/node-twitter) aims to provide a complete, asynchronous client library for the Twitter API, including the REST, search and streaming endpoints. It a fork of [@jdub](https://github.com/jdub)'s [twitter-node](https://github.com/jdub) which was inspired by, and used some code from, [@technoweenie](https://github.com/technoweenie)'s [twitter-node](https://github.com/technoweenie/twitter-node).
 
-## Requirements
 
-You can install node-twitter and its dependencies with npm: `npm install twitter`.
+## 1.x
 
-- [node](http://nodejs.org/) v0.6+
-- [node-oauth](https://github.com/ciaranj/node-oauth)
-- [cookies](https://github.com/jed/cookies)
+This library pre-1.x is comprised of patterns and a API that has been mostly un
+changed since is its inception.  The 1.x branch is an effort to:
 
-## Getting started
+ * Introduce a more standard callback pattern https://github.com/desmondmorris/node-twitter/issues/23
+ * Support for all 1.1 and future endpoints.
+ * Test coverage
+ * Better examples and documentation
 
-It's early days for node-twitter, so I'm going to assume a fair amount of knowledge for the moment. Better documentation to come as we head towards a stable release.
+### Migrating to 1.x
 
-### Setup API (stable)
+There are two major changes in 1.x:
 
-	var util = require('util'),
-		twitter = require('twitter');
-	var twit = new twitter({
-		consumer_key: 'STATE YOUR NAME',
-		consumer_secret: 'STATE YOUR NAME',
-		access_token_key: 'STATE YOUR NAME',
-		access_token_secret: 'STATE YOUR NAME'
+1. **An updated callback pattern**
+
+This has been the most popular feature request in this project and rightfully so.
+
+The new callback pattern is as follows:
+
+````
+/**
+ * I am a callback.
+ *
+ * error An error object
+ * body The payload from the API request
+ * response The raw response object from the oauth request.  We will keep this in case folks are using it in some way.
+ */
+function(error, body, response) {}
+````
+
+Previously, the `error` and `payload` arguments were ambigous (in the same argument position), causing all sorts of mayhem.
+
+
+2. **Deprecate the helper modules**
+
+Helper methods like `getFavorites` and `updateStatus` now include a console warning to use the corresponding `get` and `post` method versions.
+
+So `.getFavorites(callback)` becomes `.get('favorites/list')`.
+
+Why?  Because the helper methods do not scale, meaning - as the API changes we will need to update the helper methods accordingly.
+
+Do not worry, the legacy methods are still available. Though it is recommended to use the above suggested syntax as these will soon go the way of the dinosaurs.
+
+## Installation
+
+`npm install git://github.com/desmondmorris/node-twitter.git#1.x`
+
+
+## Configuration
+
+You will need valid Twitter developer credentials in the form of a set of consumer and access tokens/keys.  You can get these [here](https://apps.twitter.com/).  Do not forgot to adjust your permissions - most POST request require write permissions.
+
+````
+var Twitter = require('twitter');
+
+var client = new Twitter({
+  consumer_key: '',
+  consumer_secret: '',
+  access_token_key: '',
+  access_token_secret: ''
+});
+````
+
+Add you credentials accordingly.  I would use environment variables to keep your private info safe.  So something like:
+
+````
+var client = new Twitter({
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 	});
+````
 
-### Authenticate
+## Usage
 
-The format of this depends somewhat on how your routing works, but it should be clear enough.
+The library comes with two helper methods for `get` and `post` requests.  To use, you simple need to pass  the API path and parameters.  Example, lets get a list of favorites:
 
-    app.get('/', twit.gatekeeper('/login'), routes.index);
-    app.get('/login', routes.login);
-    app.get('/twauth', twit.login());
+````
+// @see configuration above for the client variable
 
-You'll need to create the routes for index & login. On the login page, you'll want a link like:
+client.get('favorites/list', function(error, params, response){
 
-    <a href="/twauth">Log in with Twitter</a>
+	if(error) throw error;
 
-### Basic OAuth-enticated GET/POST API (stable)
+	console.log(params);  // The favorites.
 
-The convenience APIs aren't finished, but you can get started with the basics:
+	console.log(response);  // Raw response object.
 
-	twit.get('/statuses/show/27593302936.json', {include_entities:true}, function(data, res) {
-		console.log(util.inspect(data), res.statusCode);
-	});
+});
 
-### REST API (unstable, may change)
+````
 
-Note that all functions may be chained:
+How about an example of that passes parameters?  Lets post a tweet something:
 
-	twit
-		.verifyCredentials(function(data) {
-			console.log(util.inspect(data));
-		})
-		.updateStatus('Test tweet from node-twitter/' + twitter.VERSION,
-			function(data) {
-				console.log(util.inspect(data));
-			}
-		);
+````
+// @see configuration above for the client variable
 
-### Search API (unstable, may change)
+client.post('statuses/updates', {status: 'TYBG for twitter'},  function(error, params, response){
 
-	twit.search('nodejs OR #node', function(data) {
-		console.log(util.inspect(data));
-	});
+  if(error) throw error;
 
-### Streaming API (stable)
+  console.log(params);  // Tweet body.
 
-The stream() callback receives a Stream-like EventEmitter:
+  console.lg(response);  // Raw response object.
 
-	twit.stream('statuses/sample', function(stream) {
-		stream.on('data', function(data) {
-			console.log(util.inspect(data));
-		});
-	});
-
-node-twitter also supports user, filter and site streams:
-
-	twit.stream('user', {track:'nodejs'}, function(stream) {
-		stream.on('data', function(data) {
-			console.log(util.inspect(data));
-		});
-		// Disconnect stream after five seconds
-		setTimeout(stream.destroy, 5000);
-	});
-
-new added events
-
-this library now supports new added events which you can listen on.
-
-`follow`
-`favorite`
-`unfavorite`
-`block`
-`unblock`
-`list_created`
-`list_destroyed`
-`list_updated`
-`list_member_added`
-`list_member_removed`
-`list_user_subscribed`
-`list_user_unsubscribed`
-`user_update`
+});
+````
