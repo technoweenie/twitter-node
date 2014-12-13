@@ -107,7 +107,7 @@ client.post('statuses/updates', {status: 'TYBG for twitter'},  function(error, p
 
   console.log(params);  // Tweet body.
 
-  console.lg(response);  // Raw response object.
+  console.log(response);  // Raw response object.
 
 });
 ````
