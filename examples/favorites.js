@@ -10,14 +10,20 @@ var client = new Twitter({
 /**
  * Get Favorites
  **/
-// client.getFavorites(function(payload){
+// client.getFavorites(function(err, payload){
+//   console.log(err);
 //   console.log(payload);
 // });
 
+client.get('/favorites/list', function(err, payload){
+  console.log(err);
+  console.log(payload);
+});
+
 /**
  * Create Favorite
- **/
-// client.createFavorite({id: 'XXXXX'}, function(payload){
+//  **/
+// client.deleteFavorite({id: '535121766117408768'}, function(err, payload){
 //   console.log(payload);
 // });
 
