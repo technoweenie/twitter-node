@@ -10,11 +10,6 @@ var client = new Twitter({
 /**
  * Get Favorites
  **/
-// client.getFavorites(function(err, payload){
-//   console.log(err);
-//   console.log(payload);
-// });
-
 client.get('/favorites/list', function(err, payload){
   console.log(err);
   console.log(payload);
@@ -22,14 +17,16 @@ client.get('/favorites/list', function(err, payload){
 
 /**
  * Create Favorite
-//  **/
-// client.deleteFavorite({id: '535121766117408768'}, function(err, payload){
-//   console.log(payload);
-// });
+ **/
+client.post('/favorites/create', {id: 'TWEET_ID'},  function(err, payload){
+  console.log(err);
+  console.log(payload);
+});
 
 /**
  * Destroy Favorite
  **/
-// client.destroyFavorite({id: 'XXXXX'}, function(payload){
-//   console.log(payload);
-// });
+client.post('/favorites/destroy', {id: 'TWEET_ID'},  function(err, payload){
+ console.log(err);
+ console.log(payload);
+});

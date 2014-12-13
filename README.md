@@ -1,24 +1,22 @@
-Twitter API client library for node.js
+Twitter for Node.js
 ======================================
 
 [node-twitter](https://github.com/desmondmorris/node-twitter) aims to provide a complete, asynchronous client library for the Twitter API, including the REST, search and streaming endpoints. It a fork of [@jdub](https://github.com/jdub)'s [twitter-node](https://github.com/jdub) which was inspired by, and used some code from, [@technoweenie](https://github.com/technoweenie)'s [twitter-node](https://github.com/technoweenie/twitter-node).
 
-
 ## 1.x
 
-This library pre-1.x is comprised of patterns and a API that has been mostly un
-changed since is its inception.  The 1.x branch is an effort to:
+This library pre-1.x is comprised of patterns and a API that has been mostly un-changed since is its inception.  The 1.x branch is an effort to:
 
- * Introduce a more standard callback pattern https://github.com/desmondmorris/node-twitter/issues/23
- * Support for all 1.1 and future endpoints.
- * Test coverage
- * Better examples and documentation
+* Introduce a more standard callback pattern https://github.com/desmondmorris/node-twitter/issues/23
+* Support for all 1.1 and future endpoints.
+* Add test coverage (Planned)
+* Add better examples and documentation (Planned)
 
 ### Migrating to 1.x
 
 There are two major changes in 1.x:
 
-1. **An updated callback pattern**
+**An updated callback pattern**
 
 This has been the most popular feature request in this project and rightfully so.
 
@@ -26,19 +24,18 @@ The new callback pattern is as follows:
 
 ````
 /**
- * I am a callback.
- *
- * error An error object
- * body The payload from the API request
- * response The raw response object from the oauth request.  We will keep this in case folks are using it in some way.
- */
+* I am a callback.
+*
+* error An error object
+* body The payload from the API request
+* response The raw response object from the oauth request.  We will keep this in case folks are using it in some way.
+*/
 function(error, body, response) {}
 ````
 
 Previously, the `error` and `payload` arguments were ambigous (in the same argument position), causing all sorts of mayhem.
 
-
-2. **Deprecate the helper modules**
+**Deprecate the helper modules**
 
 Helper methods like `getFavorites` and `updateStatus` now include a console warning to use the corresponding `get` and `post` method versions.
 
@@ -48,9 +45,10 @@ Why?  Because the helper methods do not scale, meaning - as the API changes we w
 
 Do not worry, the legacy methods are still available. Though it is recommended to use the above suggested syntax as these will soon go the way of the dinosaurs.
 
+
 ## Installation
 
-`npm install git://github.com/desmondmorris/node-twitter.git#1.x`
+`npm install twitter`
 
 
 ## Configuration
