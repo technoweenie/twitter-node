@@ -2,14 +2,14 @@ Twitter for Node.js [![NPM](https://nodei.co/npm/twitter.png?mini=true)](https:/
 ======================================
 
 
-[node-twitter](https://github.com/desmondmorris/node-twitter) aims to provide a complete, asynchronous client library for the Twitter API, including the REST, search and streaming endpoints. It a fork of [@jdub](https://github.com/jdub)'s [twitter-node](https://github.com/jdub) which was inspired by, and used some code from, [@technoweenie](https://github.com/technoweenie)'s [twitter-node](https://github.com/technoweenie/twitter-node).
+[node-twitter](https://github.com/desmondmorris/node-twitter) aims to provide a complete, asynchronous client library for the Twitter API, including the REST, search and streaming endpoints. It's a fork of [@jdub](https://github.com/jdub)'s [twitter-node](https://github.com/jdub) which was inspired by, and used some code from, [@technoweenie](https://github.com/technoweenie)'s [twitter-node](https://github.com/technoweenie/twitter-node).
 
 ## 1.x
 
-This library pre-1.x is comprised of patterns and a API that has been mostly un-changed since is its inception.  The 1.x branch is an effort to:
+This library pre-1.x is comprised of patterns and an API that has been mostly un-changed since its inception.  The 1.x branch is an effort to:
 
 * Introduce a more standard callback pattern https://github.com/desmondmorris/node-twitter/issues/23
-* Support for all 1.1 and future endpoints.
+* Support for all 1.1 and future endpoints
 * Add test coverage (Planned)
 * Add better examples and documentation (Planned)
 
@@ -67,7 +67,7 @@ var client = new Twitter({
 });
 ````
 
-Add you credentials accordingly.  I would use environment variables to keep your private info safe.  So something like:
+Add your credentials accordingly.  I would use environment variables to keep your private info safe.  So something like:
 
 ````
 var client = new Twitter({
@@ -80,7 +80,7 @@ var client = new Twitter({
 
 ## Usage
 
-The library comes with two helper methods for `get` and `post` requests.  To use, you simple need to pass  the API path and parameters.  Example, lets get a list of favorites:
+The library comes with two helper methods for `get` and `post` requests.  To use, you simply need to pass the API path and parameters.  Example, lets get a list of favorites:
 
 ````
 // @see configuration above for the client variable
@@ -97,7 +97,7 @@ client.get('favorites/list', function(error, params, response){
 
 ````
 
-How about an example of that passes parameters?  Lets post a tweet something:
+How about an example that passes parameters?  Let's post a tweet:
 
 ````
 // @see configuration above for the client variable
