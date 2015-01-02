@@ -102,7 +102,7 @@ How about an example that passes parameters?  Let's post a tweet:
 ````
 // @see configuration above for the client variable
 
-client.post('statuses/updates', {status: 'TYBG for twitter'},  function(error, params, response){
+client.post('statuses/update', {status: 'TYBG for twitter'},  function(error, params, response){
 
   if(error) throw error;
 
