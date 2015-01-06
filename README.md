@@ -112,3 +112,17 @@ client.post('statuses/update', {status: 'TYBG for twitter'},  function(error, pa
 
 });
 ````
+
+Or even streaming? Let's see whose talking about javascript:
+
+````
+// @see configuration above for the client variable
+
+client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
+
+	stream.on('data', function(tweet) {
+		console.log(tweet.text);
+	});
+
+});
+````
