@@ -14,7 +14,8 @@
     "url": "https://github.com/desmondmorris/node-twitter"
   },
   "scripts": {
-    "lint": "jshint index.js lib/*.js examples/*.js"
+    "test": "mocha",
+    "lint": "jshint index.js test/*.js lib/*.js examples/*.js"
   },
   "dependencies": {
     "cookies": ">=0.1.6",
@@ -22,24 +23,28 @@
     "oauth": ">=0.8.4"
   },
   "devDependencies": {
-    "jshint": "^2.6.0"
+    "jshint": "^2.6.0",
+    "mocha": "^2.1.0"
   },
   "engines": [
     "node >=0.2.0"
   ],
   "main": "./lib/twitter",
   "jshintConfig": {
-    "boss":      true,
-    "node":      true,
-    "strict":    true,
-    "newcap":    false,
-    "undef":     true,
-    "unused":    true,
-    "onecase":   true,
+    "boss": true,
+    "node": true,
+    "strict": true,
+    "newcap": false,
+    "undef": true,
+    "unused": true,
+    "onecase": true,
     "lastsemic": true,
-    "indent":    2,
+    "indent": 2,
     "globals": {
-      "escape": true
+      "escape": true,
+      "describe": true,
+      "it": true,
+      "before": true
     }
   }
 }
