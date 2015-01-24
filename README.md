@@ -116,13 +116,14 @@ Previously, the `error` and `payload` arguments were ambigous (in the same argum
 
 **Deprecate the helper modules**
 
-Helper methods like `getFavorites` and `updateStatus` now include a console warning to use the corresponding `get` and `post` method versions.
-
 So `.getFavorites(callback)` becomes `.get('favorites/list')`.
 
 Why?  Because the helper methods do not scale, meaning - as the API changes we will need to update the helper methods accordingly.
 
-Do not worry, the legacy methods are still available. Though it is recommended to use the above suggested syntax as these will soon go the way of the dinosaurs.
+**Deprecate the authentication strategy**
+
+I suggest taking a looking at the [Passport's Twitter strategy](https://github.com/jaredhanson/passport-twitter) if you are looking to use Twitter as an authentication method.
+
 
 ## LICENSE
 
