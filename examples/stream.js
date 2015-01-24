@@ -1,3 +1,5 @@
+'use strict';
+
 var Twitter = require('../lib/twitter');
 
 var client = new Twitter({
@@ -12,7 +14,7 @@ var client = new Twitter({
  * number of tweets per second depends on topic popularity
  **/
 client.stream('statuses/filter', {track: 'nodejs'},  function(stream){
-	stream.on('data', function(tweet) {
-		console.log(tweet.text);
-	});
+  stream.on('data', function(tweet) {
+    console.log(tweet.text);
+  });
 });

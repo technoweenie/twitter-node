@@ -9,10 +9,7 @@ var client = new Twitter({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
 
-/**
- * Search
- **/
-client.get('/search/tweets', {q: 'node.js'},  function(err, payload){
-  console.log(err);
-  console.log(payload);
-});
+client.post('mutes/users/create', {}, function(err, data){});
+client.post('mutes/users/destroy', {}, function(err, data){});
+client.get('mutes/users/ids', {}, function(err, data){});
+client.get('mutes/users/list', {}, function(err, data){});

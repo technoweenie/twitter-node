@@ -9,10 +9,7 @@ var client = new Twitter({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
 
-/**
- * Search
- **/
-client.get('/search/tweets', {q: 'node.js'},  function(err, payload){
-  console.log(err);
-  console.log(payload);
-});
+client.get('saved_searches/list', {}, function(err, data){});
+client.get('saved_searches/show/:id', {}, function(err, data){});
+client.post('saved_searches/create', {}, function(err, data){});
+client.post('saved_searches/destroy/:id', {}, function(err, data){});
