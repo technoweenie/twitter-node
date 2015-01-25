@@ -18,7 +18,6 @@
     "lint": "jshint index.js test/*.js lib/*.js examples/*.js"
   },
   "dependencies": {
-    "cookies": ">=0.1.6",
     "keygrip": ">=0.1.7",
     "oauth": ">=0.8.4"
   },
