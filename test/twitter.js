@@ -52,16 +52,6 @@ describe("Constructor", function() {
       );
 
       assert.equal(
-        client.__generateURL(path + '/', {}),
-        client.options.rest_base + '/' + path + '.json'
-      );
-
-      assert.equal(
-        client.__generateURL(path + '/', query),
-        client.options.rest_base + '/' + path + '.json?foo=bar&bar=foo'
-      );
-
-      assert.equal(
         client.__generateURL(endpoint),
         endpoint + '.json'
       );
@@ -71,15 +61,6 @@ describe("Constructor", function() {
         endpoint + '.json'
       );
 
-      assert.equal(
-        client.__generateURL(endpoint, query),
-        endpoint + '.json?foo=bar&bar=foo'
-      );
-
-      assert.equal(
-        client.__generateURL(endpoint, query),
-        endpoint + '.json?foo=bar&bar=foo'
-      );
 
     });
   });

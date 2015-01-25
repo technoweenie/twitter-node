@@ -18,16 +18,12 @@
     "lint": "jshint index.js test/*.js lib/*.js examples/*.js"
   },
   "dependencies": {
-    "keygrip": ">=0.1.7",
-    "oauth": ">=0.8.4"
+    "request": "^2.51.0"
   },
   "devDependencies": {
     "jshint": "^2.6.0",
     "mocha": "^2.1.0"
   },
-  "engines": [
-    "node >=0.2.0"
-  ],
   "main": "./lib/twitter",
   "jshintConfig": {
     "boss": true,

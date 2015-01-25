@@ -30,7 +30,7 @@ var client = new Twitter({
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
   access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
-	});
+});
 ````
 
 ## Usage
@@ -42,11 +42,11 @@ The library comes with two helper methods for `get` and `post` requests.  To use
 
 client.get('favorites/list', function(error, params, response){
 
-	if(error) throw error;
+  if(error) throw error;
 
-	console.log(params);  // The favorites.
+  console.log(params);  // The favorites.
 
-	console.log(response);  // Raw response object.
+  console.log(response);  // Raw response object.
 
 });
 
@@ -75,55 +75,14 @@ Or even streaming? Let's see whose talking about javascript:
 
 client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
 
-	stream.on('data', function(tweet) {
-		console.log(tweet.text);
-	});
+  stream.on('data', function(tweet) {
+    console.log(tweet.text);
+  });
 
 });
 ````
 
-## 1.x
-
-This library pre-1.x is comprised of patterns and an API that has been mostly un-changed since its inception.  The 1.x branch is an effort to:
-
-* Introduce a more standard callback pattern https://github.com/desmondmorris/node-twitter/issues/23
-* Support for all 1.1 and future endpoints
-* Add test coverage (Planned)
-* Add better examples and documentation (Planned)
-
-### Migrating to 1.x
-
-There are two major changes in 1.x:
-
-**An updated callback pattern**
-
-This has been the most popular feature request in this project and rightfully so.
-
-The new callback pattern is as follows:
-
-````
-/**
-* I am a callback.
-*
-* error An error object
-* body The payload from the API request
-* response The raw response object from the oauth request.  We will keep this in case folks are using it in some way.
-*/
-function(error, body, response) {}
-````
-
-Previously, the `error` and `payload` arguments were ambigous (in the same argument position), causing all sorts of mayhem.
-
-**Deprecate the helper modules**
-
-So `.getFavorites(callback)` becomes `.get('favorites/list')`.
-
-Why?  Because the helper methods do not scale, meaning - as the API changes we will need to update the helper methods accordingly.
-
-**Deprecate the authentication strategy**
-
-I suggest taking a looking at the [Passport's Twitter strategy](https://github.com/jaredhanson/passport-twitter) if you are looking to use Twitter as an authentication method.
-
+## [1.x Changes](https://github.com/desmondmorris/node-twitter/wiki/1.x)
 
 ## LICENSE
 
