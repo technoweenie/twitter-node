@@ -7,7 +7,7 @@ An asynchronous client library for the Twitter [REST](https://dev.twitter.com/re
 ```javascript
 var Twitter = require('twitter');
 
-var t = new Twitter({
+var client = new Twitter({
   consumer_key: '',
   consumer_secret: '',
   access_token_key: '',
@@ -15,7 +15,7 @@ var t = new Twitter({
 });
 
 var params = {screen_name: 'nodejs'};
-t.get('statuses/user_timeline', params, function(error, tweets, response){
+client.get('statuses/user_timeline', params, function(error, tweets, response){
   if (!error) {
     console.log(tweets);
   }
