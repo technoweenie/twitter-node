@@ -68,13 +68,9 @@ Example, lets get a [list of favorites](https://dev.twitter.com/rest/reference/g
 
 ```javascript
 client.get('favorites/list', function(error, tweets, response){
-
   if(error) throw error;
-
   console.log(tweets);  // The favorites.
-
   console.log(response);  // Raw response object.
-
 });
 ```
 
@@ -82,13 +78,9 @@ How about an example that passes parameters?  Let's  [tweet something](https://d
 
 ```javascript
 client.post('statuses/update', {status: 'I Love Twitter'},  function(error, tweet, response){
-
   if(error) throw error;
-
   console.log(tweet);  // Tweet body.
-
   console.log(response);  // Raw response object.
-
 });
 ```
 
@@ -98,7 +90,6 @@ Using the `stream` convenience method, you to open and manipulate data via a str
 
 ```javascript
 client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
-
   stream.on('data', function(tweet) {
     console.log(tweet.text);
   });
@@ -106,9 +97,13 @@ client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
   stream.on('error', function(error) {
     throw error;
   });
-
 });
 ```
+
+## Examples
+
+* [Streams](https://github.com/desmondmorris/node-twitter/tree/master/examples#streaming)
+* [Proxy](https://github.com/desmondmorris/node-twitter/tree/master/examples#proxy)
 
 ## Contributors
 
