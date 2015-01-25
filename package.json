@@ -15,7 +15,7 @@
   },
   "scripts": {
     "test": "npm run lint && mocha",
-    "lint": "jshint test/*.js lib/*.js examples/*.js && echo Lint passed."
+    "lint": "jshint test/*.js lib/*.js && echo Lint passed."
   },
   "dependencies": {
     "deep-extend": "^0.3.2",
@@ -23,7 +23,8 @@
   },
   "devDependencies": {
     "jshint": "^2.6.0",
-    "mocha": "^2.1.0"
+    "mocha": "^2.1.0",
+    "nock": "^0.57.0"
   },
   "main": "./lib/twitter",
   "jshintConfig": {
