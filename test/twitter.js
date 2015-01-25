@@ -20,10 +20,6 @@ describe("Constructor", function() {
     it("build url", function(){
 
       var path = 'statuses';
-      var query = {
-        foo: 'bar',
-        bar: 'foo'
-      };
       var endpoint = 'https://stream.twitter.com/1.1/statuses';
 
       assert.throws(

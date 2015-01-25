@@ -14,10 +14,11 @@
     "url": "https://github.com/desmondmorris/node-twitter"
   },
   "scripts": {
-    "test": "mocha",
-    "lint": "jshint index.js test/*.js lib/*.js examples/*.js"
+    "test": "npm run lint && mocha",
+    "lint": "jshint test/*.js lib/*.js examples/*.js && echo Lint passed."
   },
   "dependencies": {
+    "deep-extend": "^0.3.2",
     "request": "^2.51.0"
   },
   "devDependencies": {
