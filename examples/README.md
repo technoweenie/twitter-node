@@ -4,7 +4,7 @@
 * Search
 * [Streams](#streaming)
 * [Proxy](#proxy)
-* Media
+* [Media](#media)
 * Authentication
 
 ## Streams
@@ -57,6 +57,40 @@ var client = new Twitter({
 client.get('favorites/list', function(error, tweets, response){
   if (!error) {
     console.log(tweets);
+  }
+});
+```
+
+
+## Media
+
+Lets upload a new image and post a tweet including.
+
+```javascript
+
+// Load your image
+var data = require('fs').readFileSync('image.jpg');
+
+// Make post request on media endpoint. Pass file data as media parameter
+client.post('media/upload', {media: data}, function(error, media, response){
+
+  if (!error) {
+
+    // If successful, a media object will be returned.
+    console.log(media);
+
+    // Lets tweet it
+    var status = {
+      status: 'I am a tweet',
+      media_ids: media.media_id_string // Pass the media id string
+    }
+
+    client.post('statuses/update', status, function(error, tweet, response){
+      if (!error) {
+        console.log(tweet);
+      }
+    });
+
   }
 });
 ```
