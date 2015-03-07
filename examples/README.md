@@ -1,11 +1,29 @@
 # Examples
 
-* Tweet
-* Search
-* [Streams](#streaming)
+* [Tweet](#tweet)
+* [Search](#search)
+* [Streams](#streams)
 * [Proxy](#proxy)
 * [Media](#media)
 * Authentication
+
+## Tweet
+
+```javascript
+client.post('statuses/update', {status: 'I am a tweet'}, function(error, tweet, response){
+  if (!error) {
+    console.log(tweet);
+  }
+});
+```
+
+## Search
+
+```javascript
+client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response){
+   console.log(tweets);
+});
+```
 
 ## Streams
 

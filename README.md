@@ -102,8 +102,11 @@ client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
 
 ## Examples
 
-* [Streams](https://github.com/desmondmorris/node-twitter/tree/master/examples#streaming)
+* [Tweet](https://github.com/desmondmorris/node-twitter/tree/master/examples#tweet)
+* [Search](https://github.com/desmondmorris/node-twitter/tree/master/examples#search)
+* [Streams](https://github.com/desmondmorris/node-twitter/tree/master/examples#streams)
 * [Proxy](https://github.com/desmondmorris/node-twitter/tree/master/examples#proxy)
+* [Media](https://github.com/desmondmorris/node-twitter/tree/master/examples#media)
 
 ## Contributors
 
